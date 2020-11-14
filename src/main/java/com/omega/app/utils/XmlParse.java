@@ -12,6 +12,8 @@ public class XmlParse {
     public static Feed read(String file) throws JAXBException {
         JAXBContext jaxbContext = JAXBContext.newInstance(Feed.class);
         Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-        return (Feed) jaxbUnmarshaller.unmarshal(new File(file));
+        Object o = jaxbUnmarshaller.unmarshal(new File(file));
+        return (Feed) o;
     }
+
 }

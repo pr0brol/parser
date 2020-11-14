@@ -7,11 +7,10 @@ import javax.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
 import java.util.List;
 
-@XmlRootElement(name = "feed")
+@XmlRootElement(name = "feed", namespace = "http://www.w3.org/2005/Atom")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Feed {
-
-    @XmlElement(name = "entry")
+    @XmlElement(name = "entry", required = true)
     private List<Entry> list = new ArrayList<>();
 
     public List<Entry> getList() {

@@ -1,48 +1,49 @@
-package com.omega.app.model;
+package com.omega.app.po;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "entry")
-public class Entry {
-    @XmlElement(name = "id")
-    private String id;
+@Entity(name = "Entry")
+@Table(name = "entry")
+public class EntryPO {
 
-    @XmlElement(name = "category")
+    @Id
+    @Column(name = "id", nullable = false)
+    private long id;
+
+    @Column(name = "category")
     private String category;
 
-    @XmlElement(name = "title")
+    @Column(name = "title")
     private String title;
 
-    @XmlElement(name = "updated")
+    @Column(name = "updated")
     private Date updated;
 
-    @XmlElement(name = "author")
+    @Column(name = "author")
     private String author;
 
-    @XmlElement(name = "summary")
+    @Column(name = "summary")
     private String summary;
 
-    @XmlElement(name = "link")
-    private List<String> links;
+    @OneToMany(mappedBy = "Link")
+    @OrderColumn(name = "link_id")
+    private List<LinkPO> links;
 
-    @XmlElement(name = "content")
-    private Content content;
+    @OneToOne(mappedBy = "Content")
+    @OrderColumn(name = "content_id")
+    private ContentPO content;
 
-    public String getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(long id) {
         this.id = id;
     }
 
-        public String getCategory() {
+    public String getCategory() {
         return category;
     }
 
@@ -82,19 +83,19 @@ public class Entry {
         this.summary = summary;
     }
 
-    public List<String> getLinks() {
+    public List<LinkPO> getLinks() {
         return links;
     }
 
-    public void setLinks(List<String> links) {
+    public void setLinks(List<LinkPO> links) {
         this.links = links;
     }
 
-    public Content getContent() {
+    public ContentPO getContent() {
         return content;
     }
 
-    public void setContent(Content content) {
+    public void setContent(ContentPO content) {
         this.content = content;
     }
 }

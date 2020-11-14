@@ -1,60 +1,92 @@
-package com.omega.app.model;
+package com.omega.app.po;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import javax.persistence.*;
 
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "properties")
-public class Properties {
+@Entity(name = "Properties")
+@Table(name = "properties")
+public class PropertiesPO {
 
-    @XmlElement(name = "Ref_Key")
+    @Id
+    @Column(name = "id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+
+    @Column(name = "Ref_Key")
     private String refKey;
-    @XmlElement(name = "DataVersion")
+
+    @Column(name = "DataVersion")
     private String dataVersion;
-    @XmlElement(name = "DeletionMark")
+
+    @Column(name = "DeletionMark")
     private boolean deletionMark;
-    @XmlElement(name = "Parent_Key")
+
+    @Column(name = "Parent_Key")
     private String parentKey;
-    @XmlElement(name = "IsFolder")
+
+    @Column(name = "IsFolder")
     private boolean isFolder;
-    @XmlElement(name = "Code")
+
+    @Column(name = "Code")
     private long code;
-    @XmlElement(name = "Description")
+
+    @Column(name = "Description")
     private String description;
-    @XmlElement(name = "ГруппаДоступа_Key")
+
+    @Column(name = "ГруппаДоступа_Key")
     private String groupAccessKey;
-    @XmlElement(name = "ИНН")
+
+    @Column(name = "ИНН")
     private String inn;
-    @XmlElement(name = "КодПоОКПО")
+
+    @Column(name = "КодПоОКПО")
     private String codeOKPO;
-    @XmlElement(name = "Комментарий")
+
+    @Column(name = "Комментарий")
     private String comment;
-    @XmlElement(name = "КПП")
+
+    @Column(name = "КПП")
     private String kpp;
-    @XmlElement(name = "НаименованиеПолное")
+
+    @Column(name = "НаименованиеПолное")
     private String fullTitle;
-    @XmlElement(name = "ОсновнойБанковскийСчет_Key")
+
+    @Column(name = "ОсновнойБанковскийСчет_Key")
     private String primaryBankAccount;
-    @XmlElement(name = "Ответственный_Key")
+
+    @Column(name = "Ответственный_Key")
     private String responsibleKey;
-    @XmlElement(name = "РегистрационныйНомер")
+
+    @Column(name = "РегистрационныйНомер")
     private long registrationNumber;
-    @XmlElement(name = "ФизЛицо_Key")
+
+    @Column(name = "ФизЛицо_Key")
     private String individualKey;
-    @XmlElement(name = "ЮрФизЛицо")
+
+    @Column(name = "ЮрФизЛицо")
     private String legal;
-    @XmlElement(name = "сфпCoMagicID")
+
+    @Column(name = "сфпCoMagicID")
     private String magicId;
-    @XmlElement(name = "ДополнительныеРеквизиты")
+
+    @Column(name = "ДополнительныеРеквизиты")
     private String additionalDetails;
-    @XmlElement(name = "КонтактнаяИнформация")
+
+    @Column(name = "КонтактнаяИнформация")
     private String contactInformation;
-    @XmlElement(name = "Predefined")
+
+    @Column(name = "Predefined")
     private String predefined;
-    @XmlElement(name = "PredefinedDataName")
+
+    @Column(name = "PredefinedDataName")
     private String predefinedDataName;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public String getRefKey() {
         return refKey;
