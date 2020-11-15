@@ -1,5 +1,8 @@
 package com.omega.app.utils;
 
+import com.omega.app.model.Content;
+import com.omega.app.model.Element;
+import com.omega.app.model.Entry;
 import com.omega.app.model.Feed;
 
 import javax.xml.bind.JAXBContext;

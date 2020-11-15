@@ -9,7 +9,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "content")
 public class Content {
 
-    @XmlElement(name = "properties")
+    @XmlElement(name = "properties", namespace = "http://schemas.microsoft.com/ado/2007/08/dataservices/metadata")
     private Properties properties;
 
     public Properties getProperties() {

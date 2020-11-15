@@ -1,9 +1,6 @@
 package com.omega.app.utils;
 
-import com.omega.app.model.Content;
-import com.omega.app.model.Entry;
-import com.omega.app.model.Feed;
-import com.omega.app.model.Properties;
+import com.omega.app.model.*;
 import com.omega.app.po.*;
 
 import java.util.ArrayList;
@@ -14,8 +11,8 @@ public class Converter {
         if(feed != null){
             FeedPO result = new FeedPO();
             result.setEntries(new ArrayList<EntryPO>());
-            if(feed.getList() != null && !feed.getList().isEmpty()){
-                for (Entry entry : feed.getList()) {
+            if(feed.getEntries() != null && !feed.getEntries().isEmpty()){
+                for (Entry entry : feed.getEntries()) {
                     result.getEntries().add(toPO(entry));
                 }
             }
@@ -27,7 +24,7 @@ public class Converter {
     public static EntryPO toPO(Entry entry){
         if(entry != null){
             EntryPO result = new EntryPO();
-            result.setId(Long.parseLong(entry.getId()));
+            result.setId(entry.getId());
             result.setCategory(entry.getCategory());
             result.setTitle(entry.getTitle());
             result.setUpdated(entry.getUpdated());
@@ -35,10 +32,12 @@ public class Converter {
             result.setSummary(entry.getSummary());
             result.setContent(toPO(entry.getContent()));
             result.setLinks(new ArrayList<LinkPO>());
-            for (String link : entry.getLinks()) {
-                LinkPO linkPO = new LinkPO();
-                linkPO.setTitle(link);
-                result.getLinks().add(linkPO);
+            if(entry.getLinks() != null && !entry.getLinks().isEmpty()){
+                for (String link : entry.getLinks()) {
+                    LinkPO linkPO = new LinkPO();
+                    linkPO.setTitle(link);
+                    result.getLinks().add(linkPO);
+                }
             }
             return result;
         }
@@ -51,6 +50,7 @@ public class Converter {
             if(content.getProperties() != null){
                 result.setProperties(toPO(content.getProperties()));
             }
+            return result;
         }
         return null;
     }
@@ -78,9 +78,46 @@ public class Converter {
             result.setLegal(properties.getLegal());
             result.setMagicId(properties.getMagicId());
             result.setAdditionalDetails(properties.getAdditionalDetails());
-            result.setContactInformation(properties.getContactInformation());
+            result.setContactInformation(toPO(properties.getContactInformation()));
             result.setPredefined(properties.getPredefined());
             result.setPredefinedDataName(properties.getPredefinedDataName());
+            return result;
+        }
+        return null;
+    }
+
+    public static ContactInformationPO toPO(ContactInformation contactInformation){
+        if(contactInformation != null){
+            ContactInformationPO result = new ContactInformationPO();
+            result.setElements(new ArrayList<ElementPO>());
+            if(contactInformation.getElements() != null && !contactInformation.getElements().isEmpty()){
+                for (Element element : contactInformation.getElements()) {
+                    result.getElements().add(toPO(element));
+                }
+            }
+            return result;
+        }
+        return null;
+    }
+
+    public static ElementPO toPO(Element element){
+        if(element != null){
+            ElementPO result = new ElementPO();
+            result.setRefKey(element.getRefKey());
+            result.setLineNumber(element.getLineNumber());
+            result.setType(element.getType());
+            result.setViewKey(element.getViewKey());
+            result.setPresentation(element.getPresentation());
+            result.setValues(element.getValues());
+            result.setCountry(element.getCountry());
+            result.setRegion(element.getRegion());
+            result.setCity(element.getCity());
+            result.setEmail(element.getEmail());
+            result.setDomainNameServer(element.getDomainNameServer());
+            result.setPhoneNumber(element.getPhoneNumber());
+            result.setPhoneNumberWithoutCode(element.getPhoneNumberWithoutCode());
+            result.setViewListKey(element.getViewListKey());
+            result.setActiveDate(element.getActiveDate());
             return result;
         }
         return null;

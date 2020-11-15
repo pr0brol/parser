@@ -11,13 +11,13 @@ import java.util.List;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Feed {
     @XmlElement(name = "entry", required = true)
-    private List<Entry> list = new ArrayList<>();
+    private List<Entry> entries = new ArrayList<>();
 
-    public List<Entry> getList() {
-        return list;
+    public List<Entry> getEntries() {
+        return entries;
     }
 
-    public void setList(List<Entry> list) {
-        this.list = list;
+    public void setEntries(List<Entry> entries) {
+        this.entries = entries;
     }
 }

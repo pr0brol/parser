@@ -14,5 +14,6 @@ public class MainApp {
         Feed feed = XmlParse.read(file);
 
         FeedPO feedPO = Converter.toPO(feed);
+        System.out.println(feedPO.getEntries().get(0).getContent().getProperties().getContactInformation().getElements().get(0).getActiveDate());
     }
 }

@@ -4,56 +4,58 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
+import java.util.ArrayList;
+import java.util.List;
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "properties")
+@XmlType(name = "properties", namespace = "http://schemas.microsoft.com/ado/2007/08/dataservices/metadata")
 public class Properties {
 
-    @XmlElement(name = "Ref_Key")
+    @XmlElement(name = "Ref_Key", namespace = "http://schemas.microsoft.com/ado/2007/08/dataservices")
     private String refKey;
-    @XmlElement(name = "DataVersion")
+    @XmlElement(name = "DataVersion", namespace = "http://schemas.microsoft.com/ado/2007/08/dataservices")
     private String dataVersion;
-    @XmlElement(name = "DeletionMark")
+    @XmlElement(name = "DeletionMark", namespace = "http://schemas.microsoft.com/ado/2007/08/dataservices")
     private boolean deletionMark;
-    @XmlElement(name = "Parent_Key")
+    @XmlElement(name = "Parent_Key", namespace = "http://schemas.microsoft.com/ado/2007/08/dataservices")
     private String parentKey;
-    @XmlElement(name = "IsFolder")
+    @XmlElement(name = "IsFolder", namespace = "http://schemas.microsoft.com/ado/2007/08/dataservices")
     private boolean isFolder;
-    @XmlElement(name = "Code")
+    @XmlElement(name = "Code", namespace = "http://schemas.microsoft.com/ado/2007/08/dataservices")
     private long code;
-    @XmlElement(name = "Description")
+    @XmlElement(name = "Description", namespace = "http://schemas.microsoft.com/ado/2007/08/dataservices")
     private String description;
-    @XmlElement(name = "ГруппаДоступа_Key")
+    @XmlElement(name = "ГруппаДоступа_Key", namespace = "http://schemas.microsoft.com/ado/2007/08/dataservices")
     private String groupAccessKey;
-    @XmlElement(name = "ИНН")
+    @XmlElement(name = "ИНН", namespace = "http://schemas.microsoft.com/ado/2007/08/dataservices")
     private String inn;
-    @XmlElement(name = "КодПоОКПО")
+    @XmlElement(name = "КодПоОКПО", namespace = "http://schemas.microsoft.com/ado/2007/08/dataservices")
     private String codeOKPO;
-    @XmlElement(name = "Комментарий")
+    @XmlElement(name = "Комментарий", namespace = "http://schemas.microsoft.com/ado/2007/08/dataservices")
     private String comment;
-    @XmlElement(name = "КПП")
+    @XmlElement(name = "КПП", namespace = "http://schemas.microsoft.com/ado/2007/08/dataservices")
     private String kpp;
-    @XmlElement(name = "НаименованиеПолное")
+    @XmlElement(name = "НаименованиеПолное", namespace = "http://schemas.microsoft.com/ado/2007/08/dataservices")
     private String fullTitle;
-    @XmlElement(name = "ОсновнойБанковскийСчет_Key")
+    @XmlElement(name = "ОсновнойБанковскийСчет_Key", namespace = "http://schemas.microsoft.com/ado/2007/08/dataservices")
     private String primaryBankAccount;
-    @XmlElement(name = "Ответственный_Key")
+    @XmlElement(name = "Ответственный_Key", namespace = "http://schemas.microsoft.com/ado/2007/08/dataservices")
     private String responsibleKey;
-    @XmlElement(name = "РегистрационныйНомер")
+    @XmlElement(name = "РегистрационныйНомер", namespace = "http://schemas.microsoft.com/ado/2007/08/dataservices")
     private long registrationNumber;
-    @XmlElement(name = "ФизЛицо_Key")
+    @XmlElement(name = "ФизЛицо_Key", namespace = "http://schemas.microsoft.com/ado/2007/08/dataservices")
     private String individualKey;
-    @XmlElement(name = "ЮрФизЛицо")
+    @XmlElement(name = "ЮрФизЛицо", namespace = "http://schemas.microsoft.com/ado/2007/08/dataservices")
     private String legal;
-    @XmlElement(name = "сфпCoMagicID")
+    @XmlElement(name = "сфпCoMagicID", namespace = "http://schemas.microsoft.com/ado/2007/08/dataservices")
     private String magicId;
-    @XmlElement(name = "ДополнительныеРеквизиты")
+    @XmlElement(name = "ДополнительныеРеквизиты", namespace = "http://schemas.microsoft.com/ado/2007/08/dataservices")
     private String additionalDetails;
-    @XmlElement(name = "КонтактнаяИнформация")
-    private String contactInformation;
-    @XmlElement(name = "Predefined")
+    @XmlElement(name = "КонтактнаяИнформация", namespace = "http://schemas.microsoft.com/ado/2007/08/dataservices")
+    private ContactInformation contactInformation;
+    @XmlElement(name = "Predefined", namespace = "http://schemas.microsoft.com/ado/2007/08/dataservices")
     private String predefined;
-    @XmlElement(name = "PredefinedDataName")
+    @XmlElement(name = "PredefinedDataName", namespace = "http://schemas.microsoft.com/ado/2007/08/dataservices")
     private String predefinedDataName;
 
     public String getRefKey() {
@@ -216,11 +218,11 @@ public class Properties {
         this.additionalDetails = additionalDetails;
     }
 
-    public String getContactInformation() {
+    public ContactInformation getContactInformation() {
         return contactInformation;
     }
 
-    public void setContactInformation(String contactInformation) {
+    public void setContactInformation(ContactInformation contactInformation) {
         this.contactInformation = contactInformation;
     }
 

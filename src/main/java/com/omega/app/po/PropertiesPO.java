@@ -1,6 +1,7 @@
 package com.omega.app.po;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity(name = "Properties")
 @Table(name = "properties")
@@ -71,8 +72,9 @@ public class PropertiesPO {
     @Column(name = "ДополнительныеРеквизиты")
     private String additionalDetails;
 
-    @Column(name = "КонтактнаяИнформация")
-    private String contactInformation;
+    @OneToOne(mappedBy = "ContactInformation")
+    @JoinColumn(name = "contact_information_id")
+    private ContactInformationPO contactInformation;
 
     @Column(name = "Predefined")
     private String predefined;
@@ -248,11 +250,11 @@ public class PropertiesPO {
         this.additionalDetails = additionalDetails;
     }
 
-    public String getContactInformation() {
+    public ContactInformationPO getContactInformation() {
         return contactInformation;
     }
 
-    public void setContactInformation(String contactInformation) {
+    public void setContactInformation(ContactInformationPO contactInformation) {
         this.contactInformation = contactInformation;
     }
 

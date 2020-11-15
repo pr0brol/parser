@@ -5,5 +5,8 @@
 // Generated on: 2020.11.14 at 03:33:41 AM MSK 
 //
 
-@javax.xml.bind.annotation.XmlSchema(namespace = "http://www.w3.org/2005/Atom", elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED)
+@javax.xml.bind.annotation.XmlSchema(xmlns = {
+        @javax.xml.bind.annotation.XmlNs(prefix = "m", namespaceURI="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"),
+        @javax.xml.bind.annotation.XmlNs(prefix = "d", namespaceURI = "http://schemas.microsoft.com/ado/2007/08/dataservices")},
+        namespace = "http://www.w3.org/2005/Atom", elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED)
 package com.omega.app.model;

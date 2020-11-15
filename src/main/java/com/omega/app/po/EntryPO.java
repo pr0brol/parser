@@ -8,9 +8,8 @@ import java.util.List;
 @Table(name = "entry")
 public class EntryPO {
 
-    @Id
-    @Column(name = "id", nullable = false)
-    private long id;
+    @Column(name = "id")
+    private String id;
 
     @Column(name = "category")
     private String category;
@@ -28,18 +27,18 @@ public class EntryPO {
     private String summary;
 
     @OneToMany(mappedBy = "Link")
-    @OrderColumn(name = "link_id")
+    @JoinColumn(name = "link_id")
     private List<LinkPO> links;
 
     @OneToOne(mappedBy = "Content")
-    @OrderColumn(name = "content_id")
+    @JoinColumn(name = "content_id")
     private ContentPO content;
 
-    public long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

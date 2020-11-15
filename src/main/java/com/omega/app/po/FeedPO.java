@@ -13,7 +13,7 @@ public class FeedPO {
     private long id;
 
     @OneToMany(mappedBy = "Entry")
-    @OrderColumn(name = "entry_id")
+    @JoinColumn(name = "entry_id")
     private List<EntryPO> entries;
 
     public long getId() {

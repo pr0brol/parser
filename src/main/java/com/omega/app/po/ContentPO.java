@@ -12,7 +12,7 @@ public class ContentPO {
     private long id;
 
     @OneToOne(mappedBy = "Properties")
-    @OrderColumn(name = "properties_id")
+    @JoinColumn(name = "properties_id")
     private PropertiesPO properties;
 
     public long getId() {
